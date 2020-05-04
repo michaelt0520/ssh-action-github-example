@@ -22,19 +22,19 @@ jobs:
       with:
         node-version: '10.x'
     - name: Install yarn
-      run: npm install yarn
+      run:  npm install yarn
 
     - name: Install npm dependencies
-      run: yarn install
+      run:  yarn install
       
     - name: Run build task
-      run: yarn run build --if-present
+      run:  yarn run build --if-present
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.REMOTE_HOST }}
+        host:     ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        port: 22
-        script: whoami
+        key:      ${{ secrets.SERVER_SSH_KEY }}
+        port:     ${{ secrets.SSH_PORT }}
+        script:   whoami

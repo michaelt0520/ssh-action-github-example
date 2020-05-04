@@ -37,5 +37,6 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key:      ${{ secrets.SERVER_SSH_KEY }}
         port:     ${{ secrets.SSH_PORT }}
-        script:   whoami
-        
+        script: |
+          ls -la
+          cd react && git pull origin deploy
